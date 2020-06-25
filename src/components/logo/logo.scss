@@ -1,0 +1,14 @@
+.logo {
+	display: block;
+	font-size: 22px;
+	text-decoration: none;
+	color: #ffffff;
+	text-transform: uppercase;
+	font-weight: 400;
+	transition: .2s;
+
+	&:hover {
+		text-decoration: none;
+		color: #eeeeee;
+	}
+}
