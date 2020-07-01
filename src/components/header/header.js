@@ -9,7 +9,7 @@ const Header = () => {
 			<Logo />
 
 			<div className="header__links">
-				<a href="/" className="header__link">GitHub</a>
+				<a rel="noopener noreferrer" href="https://github.com/davidhamicev/weather-app" className="header__link" target="_blank">GitHub</a>
 			</div>
 		</header>
 	)

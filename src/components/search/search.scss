@@ -1,0 +1,30 @@
+.search {
+	max-width: 500px;
+	margin: 0 auto;
+	position: relative;
+
+	&__input {
+		width: 100%;
+		border-radius: 50px;
+		padding-top: 10px;
+		padding-right: 20px;
+		padding-bottom: 10px;
+		padding-left: 40px;
+		border: none;
+		outline: none;
+		font-size: 18px;
+		color: #868686;
+		transition: .2s;
+
+		&:focus {
+			box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+		}
+	}
+
+	&__icon {
+		position: absolute;
+		left: 15px;
+		top: 14px;
+		color: #c1c1c1c1;
+	}
+}
