@@ -1,5 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import {
+	faCloud,
+	faBolt,
+	faCloudRain,
+	faCloudShowersHeavy,
+	faSnowflake,
+	faSun,
+	faSmog,
+} from '@fortawesome/free-solid-svg-icons';
+
 
 
 import Header from '../header';
@@ -8,6 +19,7 @@ import Result from '../result/result';
 import * as actions from '../../actions';
 
 // import { WeatherServiceProvider } from '../weather-service-context';
+library.add(faCloud, faBolt, faCloudRain, faCloudShowersHeavy, faSnowflake, faSun, faSmog,);
 
 const App = ({ setSelectedCity, setSelectedCityWeather, selectedCityWeather }) => {
 	const handleFormSubmit = async (event) => {
@@ -19,20 +31,19 @@ const App = ({ setSelectedCity, setSelectedCityWeather, selectedCityWeather }) =
 		setSelectedCityWeather(await cityWeather.json());
 	}
 
+	const isWeatherSet = Object.getOwnPropertyNames(selectedCityWeather).length;
+
 	return (
 		<main className="app">
 			<Header />
-
 			<SearchPanel formSubmit={handleFormSubmit} />
-
 			{
-				Object.getOwnPropertyNames(selectedCityWeather).length ? <Result cityWeather={selectedCityWeather} /> : ''
+				isWeatherSet ? <Result /> : ''
 			}
-
 		</main>
 	);
 }
 
-const mapStateToProps = ({ selectedCity, selectedCityWeather }) => ({ selectedCity, selectedCityWeather });
+const mapStateToProps = ({ selectedCityWeather }) => ({ selectedCityWeather });
 
 export default connect(mapStateToProps, actions)(App);

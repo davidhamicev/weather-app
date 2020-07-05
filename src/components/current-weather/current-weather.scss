@@ -1,4 +1,36 @@
 .current-weather {
-	background-color: rgba(#ffffff, .2);
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	margin-bottom: 0;
+	color: #ffffff;
+	font-size: 110px;
+
+	&__temp {
+		font-weight: 500;
+		margin-right: 20px;
+	}
+
+	&__desc {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	&__icon {line-height: 130px;}
+
+	&__label {
+		font-size: 26px;
+		text-transform: capitalize;
+		white-space: nowrap;
+	}
 }
+
+// @media (max-width: 1200px) {
+// 	.current-weather {
+// 		flex-direction: column;
+// 		justify-content: center;
+
+// 		&__temp {margin-right: 0;}
+// 	}
+// }

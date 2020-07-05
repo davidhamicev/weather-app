@@ -1,29 +1,23 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 import ResultHeader from '../result-header';
 import WeatherDisplay from '../weather-display';
 
 import './result.scss';
 
-const Result = ({ cityWeather }) => {
-	const { name, dt: date } = cityWeather;
-	const { country } = cityWeather.sys;
+const Result = ({ selectedCityWeather }) => {
+	const { name, dt: date } = selectedCityWeather;
+	const { country } = selectedCityWeather.sys;
 
 	return (
 		<div className="result">
 			<ResultHeader name={name} date={date} country={country} />
-			<WeatherDisplay weather={cityWeather} />
+			<WeatherDisplay weather={selectedCityWeather} />
 		</div>
 	);
 };
 
-export default Result;
+const mapStateToProps = ({ selectedCityWeather }) => ({ selectedCityWeather });
 
-Result.defaultProps = {
-	cityWeather: {}
-};
-
-Result.prototype = {
-	cityWeather: PropTypes.object,
-};
+export default connect(mapStateToProps)(Result);
