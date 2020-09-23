@@ -1,6 +1,7 @@
 const initialState = {
 	selectedCity: '',
-	selectedCityWeather: {}
+	selectedCityWeather: {},
+	selectedCityForecast: {}
 }
 
 const reducer = (state = initialState, action) => {
@@ -14,6 +15,11 @@ const reducer = (state = initialState, action) => {
 			return {
 				...state,
 				selectedCityWeather: action.payload
+			}
+		case 'SET_FORECAST':
+			return {
+				...state,
+				selectedCityForecast: action.payload
 			}
 		default:
 			return state;

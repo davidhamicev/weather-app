@@ -19,20 +19,22 @@ import Result from '../result/result';
 import * as actions from '../../actions';
 
 // import { WeatherServiceProvider } from '../weather-service-context';
-library.add(faCloud, faBolt, faCloudRain, faCloudShowersHeavy, faSnowflake, faSun, faSmog,);
+library.add(faCloud, faBolt, faCloudRain, faCloudShowersHeavy, faSnowflake, faSun, faSmog);
 
-const App = ({ setSelectedCity, setSelectedCityWeather, selectedCityWeather }) => {
+const App = ({ setSelectedCity, setSelectedCityWeather, setForecast, selectedCityWeather }) => {
 	const handleFormSubmit = async (event) => {
 		event.preventDefault();
 		const searchingCity = event.target.elements.search.value;
-		const apiKey = 'f04f20a0cc6867a137b11c4ff7853ba0';
+		const apiKey = '9ef336a7b4bdbd408daad5ea2a0a4588';
 		const cityWeather = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${searchingCity}&appid=${apiKey}&units=metric`);
+		const forecast = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${searchingCity}&appid=${apiKey}&units=metric`);
+
 		setSelectedCity(searchingCity);
 		setSelectedCityWeather(await cityWeather.json());
+		setForecast(await forecast.json());
 	}
 
 	const isWeatherSet = Object.getOwnPropertyNames(selectedCityWeather).length;
-
 	return (
 		<main className="app">
 			<Header />
@@ -44,6 +46,6 @@ const App = ({ setSelectedCity, setSelectedCityWeather, selectedCityWeather }) =
 	);
 }
 
-const mapStateToProps = ({ selectedCityWeather }) => ({ selectedCityWeather });
+const mapStateToProps = ({ selectedCityWeather}) => ({ selectedCityWeather });
 
 export default connect(mapStateToProps, actions)(App);

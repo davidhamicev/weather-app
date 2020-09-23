@@ -1,0 +1,36 @@
+.forecast-item {
+	flex: 0 0 auto;
+	width: 150px;
+	height: 150px;
+	border-radius: 10px;
+	background-color: rgba(255, 255, 255, .2);
+	color: #ffffff;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	padding: 15px;
+	&:not(:last-child) { margin-right: 10px; }
+
+	&__date {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		font-size: 16px;
+		font-weight: 500;
+	}
+
+	&__time {
+		font-size: 14px;
+		font-weight: normal;
+	}
+
+	&__icon {
+		font-size: 26px;
+	}
+
+	&__temp {
+		font-size: 24px;
+		font-weight: 500;
+	}
+}

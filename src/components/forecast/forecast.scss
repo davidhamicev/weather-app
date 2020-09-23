@@ -1,0 +1,14 @@
+.forecast {
+	position: relative;
+	width: 100vw;
+	left: 50%;
+	transform: translateX(-50%);
+	padding: 0 20px;
+	margin-top: 30px;
+	overflow-x: auto;
+}
+
+.forecast-list {
+	display: flex;
+	justify-content: space-between;
+}
